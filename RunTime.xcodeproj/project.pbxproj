@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		D0E2DDBB2787788E00A15508 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E2DDBA2787788E00A15508 /* Preview Assets.xcassets */; };
 		D0E2DDC62787788F00A15508 /* RunTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2DDC52787788F00A15508 /* RunTimeTests.swift */; };
 		D0E2DDD12787788F00A15508 /* RunTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2DDD02787788F00A15508 /* RunTimeUITests.swift */; };
+		D21FB738278C9E4200F23C96 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB737278C9E4200F23C96 /* DetailedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D0E2DDCC2787788F00A15508 /* RunTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E2DDD02787788F00A15508 /* RunTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunTimeUITests.swift; sourceTree = "<group>"; };
 		D0E2DDD22787788F00A15508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D21FB737278C9E4200F23C96 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,6 @@
 				737140F43A170FB65126B114 /* Pods-RunTime.debug.xcconfig */,
 				46E461A3CE05CB707A259EB5 /* Pods-RunTime.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +118,7 @@
 				D0E2DDB72787788E00A15508 /* Assets.xcassets */,
 				D0E2DDBC2787788E00A15508 /* Info.plist */,
 				D0E2DDB92787788E00A15508 /* Preview Content */,
+				D21FB737278C9E4200F23C96 /* DetailedView.swift */,
 			);
 			path = RunTime;
 			sourceTree = "<group>";
@@ -329,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E2DDB62787788B00A15508 /* ContentView.swift in Sources */,
+				D21FB738278C9E4200F23C96 /* DetailedView.swift in Sources */,
 				D0E2DDB42787788B00A15508 /* RunTimeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

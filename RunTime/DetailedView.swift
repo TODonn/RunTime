@@ -1,9 +1,11 @@
-//
-//  DetailedView.swift
-//  RunTime
-//
-//  Created by Andy Sun (student LM) on 1/10/22.
-//
+/*
+ SwiftUI File: Detailed View
+ Written by: Andy Sun
+ Date: 1/11/22 - 1/xx/22
+ Description: 
+ 
+ 
+ */
 
 import SwiftUI
 

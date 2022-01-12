@@ -17,8 +17,10 @@ struct DetailedView: View {
             List(food.responses.parsed){ a in
                 Text(a.label ?? "Error")
                 Text(String(a.nutrients[0].ENERC_KCAL))
-                
-                
+                Text(String(a.nutrients[0].PROCNT))
+                Text(String(a.nutrients[0].FAT))
+                Text(String(a.nutrients[0].CHOCDF))
+                Text(String(a.nutrients[0].FIBTG))
                 //Text(food.whatever)
             }
         //Image(KFImage.whatever)

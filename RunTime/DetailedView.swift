@@ -10,14 +10,17 @@
 import SwiftUI
 
 struct DetailedView: View {
+    @StateObject var food = Food()
     var body: some View {
-        /*VStack{
-            HStack{
-                Text(Food.somethingjson.nameorsomething)
-                Image(KFImage.whatever)
+       
+            VStack{
+                HStack{
+                    //Text(food)
+                    //Image(KFImage.whatever)
+                }
+                //Text(food.whatever)
             }
-            Text(Food.somethingjson.nutritionvaluesorsomething)
-        }*/
+        Text("")
     }
 }
 

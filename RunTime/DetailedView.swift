@@ -2,7 +2,7 @@
  SwiftUI File: Detailed View
  Written by: Andy Sun
  Date: 1/11/22 - 1/xx/22
- Description:
+ Description: The view when the dropdown is pressed. Contains the image, name of the food, and nutrients.
  
  
  */
@@ -12,15 +12,17 @@ import SwiftUI
 struct DetailedView: View {
     @StateObject var food = Food()
     var body: some View {
-       
-            VStack{
-                HStack{
-                    //Text(food)
-                    //Image(KFImage.whatever)
-                }
+        
+        HStack{
+            List(food.responses.parsed){ a in
+                Text(a.label ?? "Error")
+                Text(String(a.nutrients[0].ENERC_KCAL))
+                
+                
                 //Text(food.whatever)
             }
-        Text("")
+        //Image(KFImage.whatever)
+        }
     }
 }
 

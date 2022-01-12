@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var foodItem = Food()
     var body: some View {
-        Text("we effed!!!")
+        Text(/*foodItem.etc*/ "")
             .padding()
     }
 }

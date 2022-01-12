@@ -12,7 +12,7 @@ import Foundation
 
 
 class Food : ObservableObject{
-    var responses = Response()
+    @Published var responses = Response()
     func getData(){
         guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking") else {return}
         
@@ -39,31 +39,29 @@ class Food : ObservableObject{
 
 struct Response: Codable{
     var text : String?
-    var  parsed : [food] = [food]()
+    var parsed : [foodItem] = [foodItem]()
     
 }
 
-struct food: Codable{
+struct foodItem: Codable{
     var label : String?
-    var Nutrients : [nutrient] = [nutrient]()
+    var nutrients : [nutrient] = [nutrient]()
     var image : URL?
     
     
 }
 struct nutrient: Codable{
-    
     var ENERC_KCAL : Double
     var PROCNT : Double
     var FAT : Double
+    var CHOCDF : Double
     var FIBTG : Double
-    
-    
-    
 }
 
 // add an extension to the article struct so that we can use an array of articles
 // to dynamically create List.
-extension food: Identifiable{
+extension foodItem: Identifiable{
     var id: String {return label!}
 }
+
 

@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var foodItem = Food()
     var body: some View {
-        Text(/*foodItem.etc*/ "")
-            .padding()
+        List(foodItem.responses.parsed){a in
+            Text(String(a.label ?? "Error"))
+        }
+            
     }
 }
 

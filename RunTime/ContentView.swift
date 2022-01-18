@@ -11,11 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var foodItem = Food()
     var body: some View {
-        List(foodItem.responses.parsed){a in
-            Text(String(a.label ?? "Error"))
-            
-           
-        }
+          Text("Test")
             
     }
 }

@@ -29,33 +29,36 @@ class Food : ObservableObject{
                     self.responses = response
                 }
             }
+            
             else {
                 print("error with decoder")
             }
+            
+            
             
         }.resume()
     }
 }
 
 struct Response: Codable{
-    var text : String?
-    var parsed : [foodItem] = [foodItem]()
+    var text : String? //text given to the API
+    var parsed : [foodItem] = [foodItem]() //the actual food item, the name, image, and nutrients
     
 }
 
 struct foodItem: Codable{
-    var label : String?
-    var nutrients : [nutrient] = [nutrient]()
-    var image : URL?
+    var label : String? //name of the food item
+    var nutrients : [nutrient] = [nutrient]() //nutrients, more details in the struct
+    var image : URL? //the image of the food i think
     
     
 }
 struct nutrient: Codable{
-    var ENERC_KCAL : Double
-    var PROCNT : Double
-    var FAT : Double
-    var CHOCDF : Double
-    var FIBTG : Double
+    var ENERC_KCAL : Double //Energy Calories of the food (in Kcal)
+    var PROCNT : Double //Protein Content (in grams)
+    var FAT : Double //Fat (in grams)
+    var CHOCDF : Double //Carbohydrates (in grams)
+    var FIBTG : Double //Fiber (in grams)
 }
 
 // add an extension to the article struct so that we can use an array of articles

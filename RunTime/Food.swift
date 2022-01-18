@@ -10,6 +10,7 @@ import Foundation
 
 //    https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking
 
+// "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\("item name")&nutrition-type=cooking"
 
 class Food : ObservableObject{
     @Published var responses = Response()
@@ -21,7 +22,9 @@ class Food : ObservableObject{
                 print("error with data")
                 return
             }
-            
+            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+                 
+            print(dataAsString)
             
             let decoder = JSONDecoder()
             if let response = try? decoder.decode(Response.self, from: data) {
@@ -29,6 +32,7 @@ class Food : ObservableObject{
                     self.responses = response
                 }
             }
+            
             
             else {
                 print("error with decoder")

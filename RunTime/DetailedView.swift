@@ -5,7 +5,7 @@
  Description: The view when the dropdown is pressed. Contains the image, name of the food, and nutrients.
  
  
- */
+
 
 import SwiftUI
 
@@ -33,3 +33,4 @@ struct DetailedView_Previews: PreviewProvider {
         DetailedView()
     }
 }
+*/

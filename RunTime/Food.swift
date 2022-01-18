@@ -41,6 +41,10 @@ class Food : ObservableObject{
             
             
         }.resume()
+       
+    }
+    init(){
+        getData()
     }
 }
 

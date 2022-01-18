@@ -50,8 +50,12 @@ class Food : ObservableObject{
 
 struct Response: Codable{
     var text : String? //text given to the API
-    var parsed : [foodItem] = [foodItem]() //the actual food item, the name, image, and nutrients
+    var parsed : [parsedItems] = [parsedItems]() //the actual food item, the name, image, and nutrients
     
+}
+
+struct parsedItems: Codable{
+    var food: [foodItem] = [foodItem]()
 }
 
 struct foodItem: Codable{

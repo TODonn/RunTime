@@ -31,10 +31,7 @@ class Food : ObservableObject{
                 DispatchQueue.main.async {
                     self.responses = response
                 }
-            }
-            
-            
-            else {
+            }else {
                 print("error with decoder")
             }
             
@@ -60,10 +57,8 @@ struct parsedItems: Codable{
 
 struct foodItem: Codable{
     var label : String? //name of the food item
-    var nutrients : [nutrient] = [nutrient]() //nutrients, more details in the struct
+    var nutrients : nutrient //nutrients, more details in the struct
     var image : URL? //the image of the food i think
-    
-    
 }
 struct nutrient: Codable{
     var ENERC_KCAL : Double //Energy Calories of the food (in Kcal)

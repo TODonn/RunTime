@@ -14,8 +14,9 @@ import Foundation
 
 class Food : ObservableObject{
     @Published var responses = Response()
+
     func getData(){
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking") else {return}
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(ContentView.self)&nutrition-type=cooking") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
             guard let data = data else{
@@ -34,8 +35,7 @@ class Food : ObservableObject{
             }else {
                 print("error with decoder")
             }
-            
-            
+          
             
         }.resume()
        

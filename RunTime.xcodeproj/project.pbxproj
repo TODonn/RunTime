@@ -117,11 +117,11 @@
 			children = (
 				D0E2DDB32787788B00A15508 /* RunTimeApp.swift */,
 				D0E2DDB52787788B00A15508 /* ContentView.swift */,
+				D21FB737278C9E4200F23C96 /* DetailedView.swift */,
+				D21FB739278DFBFA00F23C96 /* Food.swift */,
 				D0E2DDB72787788E00A15508 /* Assets.xcassets */,
 				D0E2DDBC2787788E00A15508 /* Info.plist */,
 				D0E2DDB92787788E00A15508 /* Preview Content */,
-				D21FB737278C9E4200F23C96 /* DetailedView.swift */,
-				D21FB739278DFBFA00F23C96 /* Food.swift */,
 			);
 			path = RunTime;
 			sourceTree = "<group>";

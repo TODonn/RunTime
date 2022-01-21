@@ -4,9 +4,8 @@
 //
 //  Created by Andy Sun (student LM) on 1/11/22.
 //
-
 import Foundation
-
+import SwiftUI
 
 //    https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking
 
@@ -14,9 +13,14 @@ import Foundation
 
 class Food : ObservableObject{
     @Published var responses = Response()
-
+    @Binding var name : String
+    
+    
     func getData(){
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking") else {return}
+        
+        
+        
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
             guard let data = data else{
@@ -40,10 +44,17 @@ class Food : ObservableObject{
         }.resume()
        
     }
-    init(){
+    
+    init(name: Binding<String>) {
+        self._name = name
         getData()
     }
-}
+    
+    
+    }
+        
+    
+
 
 struct Response: Codable{
     var text : String? //text given to the API

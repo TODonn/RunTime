@@ -11,25 +11,46 @@ import SwiftUI
 struct ContentView: View {
 //   @StateObject var foodItem = Food()
 
-    @State var name = ["enter food"]
-
+    @State var name : String = ""
     var body: some View{
 
-        VStack {
+        VStack (alignment: .leading){
             Group {
                 Text("Enter what food you want nutritional information about").font(.largeTitle)
 
             }
-
-            TextField("enter food ", text: $name[0])
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+//
+//            .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
             
-            NavigationView {
-                     
-                           NavigationLink(destination: DetailedView()) {
-                               Text("Search")
+            
+            TextField("Enter Food Item", text: $name,
+                      onEditingChanged: { (isBegin) in
+                          if isBegin {
+                              print("Begins editing")
+                          } else {
+                              print("Finishes editing")
+                          }
+                      },
+                      onCommit: {
+                        name = name
+                          print("commit")
+                      }
+                  )
+              
+               
+             
+                
+            Text("Your Food Item: \(name) - to show that name variable works - can delete later")
+            
+           
+            
+            NavigationView{
+                NavigationLink(destination: DetailedView(name: $name)) {
+                   
+                        Text("Search")
+                        
                            }
-                       }
+                    }
                     }
                 }
             }

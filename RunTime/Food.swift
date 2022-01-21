@@ -12,9 +12,9 @@ import SwiftUI
 // "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\("item name")&nutrition-type=cooking"
 
 class Food : ObservableObject{
+    @StateObject var food = Food()
     @Published var responses = Response()
-    @Binding var name : String
-    
+    @State var name : String = ""
     
     func getData(){
         
@@ -28,7 +28,7 @@ class Food : ObservableObject{
                 return
             }
             guard let dataAsString = String(data: data, encoding: .utf8) else {return}
-                 
+            
             print(dataAsString)
             
             let decoder = JSONDecoder()
@@ -39,21 +39,21 @@ class Food : ObservableObject{
             }else {
                 print("error with decoder")
             }
-          
+            
             
         }.resume()
-       
+        
     }
     
-    init(name: Binding<String>) {
-        self._name = name
+    init() {
+        
         getData()
     }
     
     
-    }
-        
-    
+}
+
+
 
 
 struct Response: Codable{

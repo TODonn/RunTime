@@ -10,9 +10,10 @@
 import SwiftUI
 import struct Kingfisher.KFImage
 struct DetailedView: View {
-    
-    @StateObject var food = Food(name: .constant(""), ready: .constant(true))
+   
     @Binding var name : String
+    @StateObject var food = Food(name: .constant("pineapple"))
+  
     
     var body: some View {
         

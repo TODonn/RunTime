@@ -14,22 +14,13 @@ import SwiftUI
 class Food : ObservableObject{
     @Published var responses = Response()
     @Binding var name : String
-    @Binding var ready : Bool
     
     
     func getData(){
         
-        var nameThing = "Apple"
         
-        ready = true
         
-        if ready == true {
-     nameThing = name
-        } else {
-            nameThing = "banana"
-        }
-        
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(nameThing)&nutrition-type=cooking") else {return}
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
             guard let data = data else{
@@ -54,9 +45,8 @@ class Food : ObservableObject{
        
     }
     
-    init(name: Binding<String>, ready: Binding<Bool>) {
+    init(name: Binding<String>) {
         self._name = name
-        self._ready = ready
         getData()
     }
     

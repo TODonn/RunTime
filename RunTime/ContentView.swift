@@ -12,7 +12,6 @@ struct ContentView: View {
 //   @StateObject var foodItem = Food()
 
     @State var name : String = ""
-    @State var ready : Bool = false
     var body: some View{
 
         VStack (alignment: .leading){
@@ -20,10 +19,25 @@ struct ContentView: View {
                 Text("Enter what food you want nutritional information about").font(.largeTitle)
 
             }
-
+//
+//            .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
             
-            TextField("Enter Food Item", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
+            
+            TextField("Enter Food Item", text: $name,
+                      onEditingChanged: { (isBegin) in
+                          if isBegin {
+                              print("Begins editing")
+                          } else {
+                              print("Finishes editing")
+                          }
+                      },
+                      onCommit: {
+                        name = name
+                          print("commit")
+                      }
+                  )
+              
+               
              
                 
             Text("Your Food Item: \(name) - to show that name variable works - can delete later")

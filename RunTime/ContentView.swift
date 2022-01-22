@@ -12,6 +12,7 @@ struct ContentView: View {
 //   @StateObject var foodItem = Food()
 
     @State var name : String = ""
+    
     var body: some View{
 
         VStack (alignment: .leading){

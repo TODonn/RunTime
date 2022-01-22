@@ -9,33 +9,52 @@
 
 import SwiftUI
 import struct Kingfisher.KFImage
+
 struct DetailedView: View {
    
-    @Binding var name : String
-    @StateObject var food = Food(name: .constant("pineapple"))
+
+        @Binding var name : String
   
     
-    var body: some View {
+//    func nameBuffer() -> String {
+//
+//        @State var name2 : String = name
+//        return name2
+//    }
+//
+    func foodObject() -> Food{
         
+        @StateObject var foods = Food(name: Binding.constant(name) )
+        
+        return foods
+    }
+    
    
+    
+//    @StateObject var food = Food(name: Binding.constant("pineapple"))
+//    @StateObject var food = Food(name: Binding.constant(name))
+    var body: some View {
+     
+        
+        
         NavigationView{
+            
             
        List(){
         Text(name + "(THIS IS NOT JSON - Elson)")
-        Text(food.responses.text ?? "not found - this is JSON")
-        
-        
+        Text(foodObject().responses.text ?? "not found - this is JSON")
+
+      
        }.navigationBarTitle("JSON DATA")
 
     }
-        
         
     }
 }
 
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedView(name: .constant("default value"))
+        DetailedView(name: .constant("Pineapple"))
     }
 }
 

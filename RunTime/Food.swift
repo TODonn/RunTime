@@ -12,29 +12,31 @@ import SwiftUI
 // "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\("item name")&nutrition-type=cooking"
 
 class Food : ObservableObject{
-    @StateObject var food = Food()
+    
     @Published var responses = Response()
-    @State var name : String = ""
+    @Binding var name : String
+    
     
     func getData(){
+         
+        print(name)
         
-        
-        
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=ce480983&app_key=%7d6fcbe43a2dd9d7d6eb5d5c1120dcd6&ingr=\(name)&nutrition-type=cooking") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
             guard let data = data else{
                 print("error with data")
                 return
             }
-            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
-            
-            print(dataAsString)
-            
+//            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+//
+//            print(dataAsString)
+
             let decoder = JSONDecoder()
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    print(response.parsed)
                 }
             }else {
                 print("error with decoder")
@@ -45,8 +47,8 @@ class Food : ObservableObject{
         
     }
     
-    init() {
-        
+    init(name: Binding<String>) {
+        self._name = name
         getData()
     }
     
@@ -84,5 +86,4 @@ struct nutrient: Codable{
 extension foodItem: Identifiable{
     var id: String {return label!}
 }
-
 

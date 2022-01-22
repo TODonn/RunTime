@@ -33,6 +33,7 @@ class Food : ObservableObject{
 //            print(dataAsString)
 
             let decoder = JSONDecoder()
+            print(response)
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response

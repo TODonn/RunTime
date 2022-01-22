@@ -11,17 +11,17 @@ import SwiftUI
 import struct Kingfisher.KFImage
 
 struct DetailedView: View {
-   
-
-        @Binding var name : String
-  
     
-//    func nameBuffer() -> String {
-//
-//        @State var name2 : String = name
-//        return name2
-//    }
-//
+    
+    @Binding var name : String
+    
+    
+    //    func nameBuffer() -> String {
+    //
+    //        @State var name2 : String = name
+    //        return name2
+    //    }
+    //
     func foodObject() -> Food{
         
         @StateObject var foods = Food(name: Binding.constant(name) )
@@ -29,25 +29,27 @@ struct DetailedView: View {
         return foods
     }
     
-   
     
-//    @StateObject var food = Food(name: Binding.constant("pineapple"))
-//    @StateObject var food = Food(name: Binding.constant(name))
+    
+    //    @StateObject var food = Food(name: Binding.constant("pineapple"))
+    //    @StateObject var food = Food(name: Binding.constant(name))
     var body: some View {
-     
+        
         
         
         NavigationView{
             
-            
-       List(){
-        Text(name + "(THIS IS NOT JSON - Elson)")
-        Text(foodObject().responses.text ?? "not found - this is JSON")
-
-      
-       }.navigationBarTitle("JSON DATA")
-
-    }
+            VStack{
+                List(){
+                    Text(name + "(THIS IS NOT JSON - Elson)")
+                    Text(foodObject().responses.parsed.first?.food.label ?? "error")
+                    
+                    
+                }.navigationBarTitle("JSON DATA")
+                
+                
+            }
+        }
         
     }
 }

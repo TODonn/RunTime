@@ -12,28 +12,28 @@ struct ContentView: View {
 //   @StateObject var foodItem = Food()
 
     @State var name : String = ""
+    
     var body: some View{
 
         VStack (alignment: .leading){
             Group {
                 Text("Enter what food you want nutritional information about").font(.largeTitle)
-
+                
             }
-//
-//            .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
+            //
+            //            .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
             
             
             TextField("Enter Food Item", text: $name,
                       onEditingChanged: { (isBegin) in
-                          if isBegin {
-                              print("Begins editing")
-                          } else {
-                              print("Finishes editing")
-                          }
+                        if isBegin {
+                            print("Begins editing")
+                        } else {
+                            print("Finishes editing")
+                        }
                       },
                       onCommit: {
-                        name = name
-                          print("commit")
+                        print("commit")
                       }
                   )
               

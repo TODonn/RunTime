@@ -12,13 +12,14 @@ import SwiftUI
 // "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\("item name")&nutrition-type=cooking"
 
 class Food : ObservableObject{
+    
     @Published var responses = Response()
     @Binding var name : String
     
     
     func getData(){
-        
-        
+         
+        print(name)
         
         guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
         
@@ -27,22 +28,24 @@ class Food : ObservableObject{
                 print("error with data")
                 return
             }
-            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
-                 
-            print(dataAsString)
-            
+//            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+//
+//            print(dataAsString)
+
             let decoder = JSONDecoder()
+            print(response)
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
+                    print(response.parsed)
                 }
             }else {
                 print("error with decoder")
             }
-          
+            
             
         }.resume()
-       
+        
     }
     
     init(name: Binding<String>) {
@@ -51,9 +54,9 @@ class Food : ObservableObject{
     }
     
     
-    }
-        
-    
+}
+
+
 
 
 struct Response: Codable{
@@ -84,5 +87,4 @@ struct nutrient: Codable{
 extension foodItem: Identifiable{
     var id: String {return label!}
 }
-
 

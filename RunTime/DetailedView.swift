@@ -16,41 +16,62 @@ struct DetailedView: View {
     @Binding var name : String
     
     
-    //    func nameBuffer() -> String {
-    //
-    //        @State var name2 : String = name
-    //        return name2
-    //    }
-    //
+ 
     func foodObject() -> Food{
+
         
-        @StateObject var foods = Food(name: Binding.constant(name) )
+        @StateObject var foods = Food(name: Binding.constant(name))
+        
+        print("\(foods) from function")
+        print( "\(foods.responses.text) from function")
+        print("\(foods.name) from function")
+        print("\(foods.responses.parsed.first?.food) from function")
+   
         
         return foods
     }
+
     
     
-    
-    //    @StateObject var food = Food(name: Binding.constant("pineapple"))
+        @StateObject var foods = Food(name: Binding.constant("pineapple"))
     //    @StateObject var food = Food(name: Binding.constant(name))
+    
+    
     var body: some View {
         
-        
+    
         
         NavigationView{
             
-            VStack{
-                List(){
-                    Text(name + "(THIS IS NOT JSON - Elson)")
-                    Text(foodObject().responses.parsed.first?.food.label ?? "error")
-                    
-                    
-                }.navigationBarTitle("JSON DATA")
+         
+                
+            List(){
+                   
+            
+
+                    Text((foodObject().responses.parsed.first?.food.label ?? "nil"))
+                    Text(verbatim: "\(foodObject().responses.parsed)")
+                Text(verbatim: "\(foodObject().responses.parsed.first?.food.label ?? "error")")
+                Text(verbatim: "\(foodObject().name)")
+                Text(verbatim: "\(foodObject().$name)")
+                Text(verbatim: "\(foodObject().responses)")
+                Text(verbatim: "\(foodObject().$responses)")
+                Text(verbatim: "\(foodObject().getData())")
+                Text(verbatim: "\(foodObject())")
+                
+                Text(verbatim: "\(foods.responses.parsed.first?.food)")
                 
                 
-            }
-        }
+                
+                
+                
+
+                    } .navigationBarTitle("JSON DATA")
         
+                
+        
+
+    }
     }
 }
 

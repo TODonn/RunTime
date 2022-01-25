@@ -40,7 +40,7 @@ struct DetailedViewDetail: View {
             Text(verbatim: "Carbohydrates: \(Carbs)g \(count)")
             KFImage(URL(string: imageUrl))
                 .resizable().aspectRatio(contentMode: .fit)
-            Text(verbatim: "\(food.responses.hints[4])")
+            Text(verbatim: "\(food.responses.hints)")
             
         } .navigationBarTitle(food.responses.hints.first?.food.label ?? "nil")
         

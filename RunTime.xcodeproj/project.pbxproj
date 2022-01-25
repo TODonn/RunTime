@@ -16,6 +16,7 @@
 		D0E2DDD12787788F00A15508 /* RunTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2DDD02787788F00A15508 /* RunTimeUITests.swift */; };
 		D21FB738278C9E4200F23C96 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB737278C9E4200F23C96 /* DetailedView.swift */; };
 		D21FB73A278DFBFA00F23C96 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FB739278DFBFA00F23C96 /* Food.swift */; };
+		F0635244279F820300561601 /* DetailedViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0635243279F820300561601 /* DetailedViewDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D0E2DDD22787788F00A15508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21FB737278C9E4200F23C96 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 		D21FB739278DFBFA00F23C96 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		F0635243279F820300561601 /* DetailedViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				D0E2DDB52787788B00A15508 /* ContentView.swift */,
 				D21FB737278C9E4200F23C96 /* DetailedView.swift */,
 				D21FB739278DFBFA00F23C96 /* Food.swift */,
+				F0635243279F820300561601 /* DetailedViewDetail.swift */,
 				D0E2DDB72787788E00A15508 /* Assets.xcassets */,
 				D0E2DDBC2787788E00A15508 /* Info.plist */,
 				D0E2DDB92787788E00A15508 /* Preview Content */,
@@ -337,6 +340,7 @@
 				D21FB73A278DFBFA00F23C96 /* Food.swift in Sources */,
 				D21FB738278C9E4200F23C96 /* DetailedView.swift in Sources */,
 				D0E2DDB42787788B00A15508 /* RunTimeApp.swift in Sources */,
+				F0635244279F820300561601 /* DetailedViewDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

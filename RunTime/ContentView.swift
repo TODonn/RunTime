@@ -9,54 +9,43 @@ import SwiftUI
 
 
 struct ContentView: View {
-//   @StateObject var foodItem = Food()
-
-    @State var name : String = ""
+    //   @StateObject var foodItem = Food()
+    
+    @StateObject var food : Food
+    @State var name : String
+    
     
     var body: some View{
-
-        VStack (alignment: .leading){
-            Group {
-                Text("Enter what food you want nutritional information about").font(.largeTitle)
+        
+        NavigationView{
+            ZStack{
+                Text("NutriFacts")
+                Color.white
+                VStack{
+                    Text("Enter Food Below").bold().foregroundColor(.black).font(.system(size: 24))
+                    VStack{
+                        TextField("Search ...", text: $name).foregroundColor(Color.black).background(Color(.systemGray4))
                 
-            }
-            //
-            //            .textFieldStyle(RoundedBorderTextFieldStyle()).foregroundColor(Color.blue).background(Color.gray)
-            
-            
-            TextField("Enter Food Item", text: $name,
-                      onEditingChanged: { (isBegin) in
-                        if isBegin {
-                            print("Begins editing")
-                        } else {
-                            print("Finishes editing")
-                        }
-                      },
-                      onCommit: {
-                        print("commit")
-                      }
-                  )
-              
-               
-             
-                
-            Text("Your Food Item: \(name) - to show that name variable works - can delete later")
-            
-           
-            
-            NavigationView{
-                NavigationLink(destination: DetailedView(name: $name)) {
-                   
-                        Text("Search")
-                        
-                           }
                     }
+                    
+                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")), count: 0)) {
+                        Text("Search")
                     }
                 }
-            }
+                
+            }.ignoresSafeArea()
+        }
+        
+        
+        
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView(food: Food(name: Binding.constant("pineapple")), name: " ")
+        }
     }
 }
+

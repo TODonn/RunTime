@@ -14,69 +14,29 @@ struct DetailedView: View {
     
     
     @Binding var name : String
-    
-    
- 
-    func foodObject() -> Food{
-
-        
-        @StateObject var foods = Food(name: Binding.constant(name))
-        
-        print("\(foods) from function")
-        print( "\(foods.responses.text) from function")
-        print("\(foods.name) from function")
-        print("\(foods.responses.parsed.first?.food) from function")
-   
-        
-        return foods
-    }
-
-    
-    
-        @StateObject var foods = Food(name: Binding.constant("pineapple"))
-    //    @StateObject var food = Food(name: Binding.constant(name))
-    
+    @ObservedObject var food : Food
+    @State var count : Int
     
     var body: some View {
         
-    
         
-        NavigationView{
+        
+        List(food.responses.hints.indices){ count in
             
-         
-                
-            List(){
-                   
             
-
-                    Text((foodObject().responses.parsed.first?.food.label ?? "nil"))
-                    Text(verbatim: "\(foodObject().responses.parsed)")
-                Text(verbatim: "\(foodObject().responses.parsed.first?.food.label ?? "error")")
-                Text(verbatim: "\(foodObject().name)")
-                Text(verbatim: "\(foodObject().$name)")
-                Text(verbatim: "\(foodObject().responses)")
-                Text(verbatim: "\(foodObject().$responses)")
-                Text(verbatim: "\(foodObject().getData())")
-                Text(verbatim: "\(foodObject())")
-                
-                Text(verbatim: "\(foods.responses.parsed.first?.food)")
+            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[count].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil")), count: Binding.constant(0)),
+                            label: {
+                Text(verbatim: "\(food.responses.hints[count].food.label) \(count)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
                 
                 
-                
-                
-                
-
-                    } .navigationBarTitle("JSON DATA")
-        
-                
-        
-
-    }
+            })
+            
+        } .navigationBarTitle("JSON DATA")
     }
 }
 
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedView(name: .constant("Pineapple"))
+        DetailedView(name: .constant("Pineapple"), food: Food(name: Binding.constant("Pineapple")), count: 0)
     }
 }

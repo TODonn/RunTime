@@ -7,33 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B386CF29-8DA0-4715-894C-89492735E31E"
-            shouldBeEnabled = "Yes"
+            uuid = "577B7F90-3B0F-49CF-AF33-13AFFC1BCFF1"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RunTime/ContentView.swift"
+            filePath = "RunTime/DetailedView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FE1CCB0B-B3EA-44C1-90AD-B96D3B83DE48"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RunTime/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "ContentView_Previews"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "DetailedView"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "577B7F90-3B0F-49CF-AF33-13AFFC1BCFF1 - 9333457fd04671ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of RunTime.DetailedView.food : RunTime.Food"
+                  moduleName = "RunTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s015862/Desktop/Comsi/Swift%20General%20Workspace/RunTime/RunTime/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  uuid = "577B7F90-3B0F-49CF-AF33-13AFFC1BCFF1 - 4d48793f3990f987"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTime.DetailedView.food.getter : RunTime.Food"
+                  moduleName = "RunTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s015862/Desktop/Comsi/Swift%20General%20Workspace/RunTime/RunTime/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "577B7F90-3B0F-49CF-AF33-13AFFC1BCFF1 - dd7b74bd7c37224f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTime.DetailedView.$food.getter : SwiftUI.ObservedObject&lt;RunTime.Food&gt;.Wrapper"
+                  moduleName = "RunTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s015862/Desktop/Comsi/Swift%20General%20Workspace/RunTime/RunTime/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "577B7F90-3B0F-49CF-AF33-13AFFC1BCFF1 - 7b9e05b515290ebf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RunTime.DetailedView.init() -&gt; RunTime.DetailedView"
+                  moduleName = "RunTime"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s015862/Desktop/Comsi/Swift%20General%20Workspace/RunTime/RunTime/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,10 +7,6 @@
 import Foundation
 import SwiftUI
 
-//    https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=apple&nutrition-type=cooking
-
-// "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\("item name")&nutrition-type=cooking"
-
 class Food : ObservableObject{
     
     @Published var responses = Response()
@@ -36,10 +32,11 @@ class Food : ObservableObject{
             let decoder = JSONDecoder()
 //            print(response)
             if let response = try? decoder.decode(Response.self, from: data) {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async{
                     self.responses = response
                     print(response.parsed)
-                }
+            }
+                
             }else {
                 print("error with decoder")
             }
@@ -62,13 +59,19 @@ class Food : ObservableObject{
 
 struct Response: Codable{
     var text : String? //text given to the API
-    var parsed : [parsedItems] = [parsedItems]() //the actual food item, the name, image, and nutrients
-    
+    var parsed : [parsedItems] = [parsedItems]()
+    var hints : [hint] = [hint]()
 }
 
 struct parsedItems: Codable{
     var food: [foodItem] = [foodItem]()
 }
+
+
+struct hint: Codable{
+    var food: foodItem //the actual food item, the name, image, and nutrients
+}
+
 
 struct foodItem: Codable{
     var label : String? //name of the food item

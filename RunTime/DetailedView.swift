@@ -15,15 +15,18 @@ struct DetailedView: View {
     
     @Binding var name : String
     @ObservedObject var food : Food
+    @State var count : Int
 
     var body: some View {
     
         
-            List(food.responses.hints.indices){ index in
-              
-                NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[index].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil"))),
+    
+            List(food.responses.hints.indices){ count in
+                
+
+                NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[count].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil")), count: Binding.constant(0)),
                                 label: {
-                                    Text(verbatim: "\(food.responses.hints[index].food.label)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
+        Text(verbatim: "\(food.responses.hints[count].food.label) \(count)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
                                  
                                    
                                 })
@@ -34,6 +37,6 @@ struct DetailedView: View {
 
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedView(name: .constant("Pineapple"), food: Food(name: Binding.constant("Pineapple")))
+        DetailedView(name: .constant("Pineapple"), food: Food(name: Binding.constant("Pineapple")), count: 0)
     }
 }

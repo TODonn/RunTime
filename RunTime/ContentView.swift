@@ -17,20 +17,18 @@ struct ContentView: View {
     
     var body: some View{
         
-        
         NavigationView{
             ZStack{
-                Color.black
+                Text("NutriFacts")
+                Color.white
                 VStack{
-                    Text("Enter Food Below").bold().foregroundColor(.white)
+                    Text("Enter Food Below").bold().foregroundColor(.black).font(.system(size: 24))
                     VStack{
-                        TextField("Search ...", text: $name).foregroundColor(Color.white).background(Color.gray)
+                        TextField("Search ...", text: $name).foregroundColor(Color.black).background(Color(.systemGray4))
+                
                     }
                     
-                    
-                    
-                    
-                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")))) {
+                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")), count: 0)) {
                         Text("Search")
                     }
                 }

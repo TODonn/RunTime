@@ -16,22 +16,22 @@ struct DetailedView: View {
     @Binding var name : String
     @ObservedObject var food : Food
     @State var count : Int
-
+    
     var body: some View {
-    
         
-    
-            List(food.responses.hints.indices){ count in
+        
+        
+        List(food.responses.hints.indices){ count in
+            
+            
+            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[count].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil")), count: Binding.constant(0)),
+                            label: {
+                Text(verbatim: "\(food.responses.hints[count].food.label) \(count)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
                 
-
-                NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[count].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil")), count: Binding.constant(0)),
-                                label: {
-        Text(verbatim: "\(food.responses.hints[count].food.label) \(count)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
-                                 
-                                   
-                                })
-
-                    } .navigationBarTitle("JSON DATA")
+                
+            })
+            
+        } .navigationBarTitle("JSON DATA")
     }
 }
 

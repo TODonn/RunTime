@@ -15,8 +15,8 @@ struct DetailedViewDetail: View {
     
     var body: some View {
         let foodLabel : String = "\(food.responses.hints.first?.food.label)"
-        .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: "")
-
+            .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: "")
+        
         let imageUrl : String = "\(food.responses.parsed.first?.food.image)"
             .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
         let Calories : String = "\(food.responses.parsed.first?.food.nutrients.ENERC_KCAL)".replacingOccurrences(of: "Optional(", with: "")
@@ -30,21 +30,21 @@ struct DetailedViewDetail: View {
         let Carbs : String = "\(food.responses.parsed.first?.food.nutrients.CHOCDF)"
             .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
         
-    
-            List(){
-                Text(verbatim: "\(foodLabel) - food label")
-                Text(verbatim: "Calories: \(Calories)")
-                Text(verbatim: "Protein: \(Protein)g")
-                Text(verbatim: "Fat: \(Fat)g")
-                Text(verbatim: "Fiber: \(Fiber)g")
-                Text(verbatim: "Carbohydrates: \(Carbs)g \(count)")
-                KFImage(URL(string: imageUrl))
-                    .resizable().aspectRatio(contentMode: .fit)
-                Text(verbatim: "\(food.responses.hints[4].food)" )
-                
-            } .navigationBarTitle(food.responses.hints.first?.food.label ?? "nil")
-   
-        }
+        
+        List(){
+            Text(verbatim: "\(foodLabel) - food label")
+            Text(verbatim: "Calories: \(Calories)")
+            Text(verbatim: "Protein: \(Protein)g")
+            Text(verbatim: "Fat: \(Fat)g")
+            Text(verbatim: "Fiber: \(Fiber)g")
+            Text(verbatim: "Carbohydrates: \(Carbs)g \(count)")
+            KFImage(URL(string: imageUrl))
+                .resizable().aspectRatio(contentMode: .fit)
+            Text(verbatim: "\(food.responses.hints[4])")
+            
+        } .navigationBarTitle(food.responses.hints.first?.food.label ?? "nil")
+        
+    }
     
 }
 

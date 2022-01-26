@@ -8,8 +8,13 @@
 import SwiftUI
 
 @main
+
 struct RunTimeApp: App {
+
+
+    
     var body: some Scene {
+      
         WindowGroup {
             ContentView(food: Food(name: Binding.constant("Pineapple")), name: " ")
         }

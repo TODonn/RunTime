@@ -40,22 +40,14 @@ class Food : ObservableObject{
             }else {
                 print("error with decoder")
             }
-            
-            
         }.resume()
-        
     }
     
     init(name: Binding<String>) {
         self._name = name
         getData()
     }
-    
-    
 }
-
-
-
 
 struct Response: Codable{
     var text : String? //text given to the API

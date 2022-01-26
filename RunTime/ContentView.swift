@@ -13,10 +13,11 @@ struct ContentView: View {
     
     @StateObject var food : Food
     @State var name : String
-    
+
+   
     
     var body: some View{
-        
+   
         NavigationView{
             ZStack{
                 Text("NutriFacts")
@@ -28,7 +29,7 @@ struct ContentView: View {
                 
                     }
                     
-                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")), count: 0)) {
+                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")))) {
                         Text("Search")
                     }
                 }

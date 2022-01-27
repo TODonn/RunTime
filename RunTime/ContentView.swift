@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct ContentView: View {
-    //   @StateObject var foodItem = Food()
     
     @StateObject var food : Food
     @State var name : String
@@ -20,9 +19,11 @@ struct ContentView: View {
    
         NavigationView{
             ZStack{
-                Text("NutriFacts")
-                Color.white
+                Color.blue
                 VStack{
+                    Text("NutriFacts")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 44))
                     Text("Enter Food Below").bold().foregroundColor(.black).font(.system(size: 24))
                     VStack{
                         TextField("Search ...", text: $name).foregroundColor(Color.black).background(Color(.systemGray4))

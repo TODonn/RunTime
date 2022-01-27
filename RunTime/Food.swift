@@ -12,11 +12,11 @@ class Food : ObservableObject{
     @Published var responses = Response()
     @Binding var name : String
     
-   
     func getData(){
-         
-        print(name)
-    
+        
+print(name)
+        
+        
         guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
@@ -27,16 +27,12 @@ class Food : ObservableObject{
 //            guard let dataAsString = String(data: data, encoding: .utf8) else {return}
 //
 //            print(dataAsString)
-
-            
             let decoder = JSONDecoder()
 
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async{
                     self.responses = response
                     print("\(self.responses)print")
-                    
-            
             }
                 
             }else {

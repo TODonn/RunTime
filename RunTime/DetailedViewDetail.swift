@@ -40,11 +40,7 @@ struct DetailedViewDetail: View {
             KFImage(URL(string: imageUrl))
                 .resizable().aspectRatio(contentMode: .fit)
             
-            
-           Text("\(imageUrl)")
-            
         } .navigationBarTitle(food.responses.hints[count].food.label ?? "nil") .navigationViewStyle(StackNavigationViewStyle())
-        
     }
     
 }

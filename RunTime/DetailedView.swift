@@ -16,48 +16,20 @@ struct DetailedView: View {
     @Binding var name : String
     @ObservedObject var food : Food
    @State var count : Int = 0
-    @State var countCounter : Int = 0
-    
-    
-    func counttee() -> Int{
-        
-        return count
-    }
-
-    func countUpdater()  {
-        var counttt : Int = count
-        print("banananan")
-        if count < 21 {
-            
-            DispatchQueue.main.async{
-                if (true){
-            counttt += 1
-            count = counttt
-                    countCounter = 0
-                }             }
-            
-        
-        }
-                print(counttt)
-        print(count)
-    }
-    
-
     
     var body: some View {
         
        
         List(food.responses.hints.indices){ counts in
             
-            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[counts].food.label ?? "nil")), name: self.$name, count: self.$count),
-                            //(food: Food(name: Binding.constant(food.responses.hints[counts].food.label ?? "nil")), name: Binding.constant((food.responses.hints[counts].food.label ?? "nil")), count: Binding.constant((counttee())))
-                            
+            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints.first?.food.label ?? "nil")), name: Binding.constant((food.responses.hints[counts].food.label ?? "nil")), count: Binding.constant(counts)),
                             label: {
-              
-                                Text(verbatim: "\(food.responses.hints[counts].food.label) \(countUpdater()) \(count) \(counts)" .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
+                                Text(verbatim: "\((counts)+1). \(food.responses.hints[counts].food.label) " .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
+                                
+                                
             })
             
-        } .navigationBarTitle("JSON DATA")
+        } .navigationBarTitle("JSON DATA") .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

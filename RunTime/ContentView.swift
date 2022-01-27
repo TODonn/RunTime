@@ -29,13 +29,13 @@ struct ContentView: View {
                 
                     }
                     
-                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")))) {
+                    NavigationLink(destination: DetailedView(name: Binding.constant("\(name)"), food: Food(name: Binding.constant("\(name)")))) {
                         Text("Search")
                     }
                 }
                 
             }.ignoresSafeArea()
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
         
         

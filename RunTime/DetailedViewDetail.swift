@@ -14,35 +14,36 @@ struct DetailedViewDetail: View {
     @Binding var count : Int
     
     var body: some View {
-        let foodLabel : String = "\(food.responses.hints.first?.food.label)"
+        let foodLabel : String = "\(food.responses.hints[count].food.label)"
             .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: "")
         
-        let imageUrl : String = "\(food.responses.hints.first?.food.image)"
+        let imageUrl : String = "\(food.responses.hints[count].food.image)"
             .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
-        let Calories : String = "\(food.responses.hints.first?.food.nutrients.ENERC_KCAL)".replacingOccurrences(of: "Optional(", with: "")
-            .replacingOccurrences(of: ")", with: "")
-        let Protein : String = "\(food.responses.hints.first?.food.nutrients.PROCNT)".replacingOccurrences(of: "Optional(", with: "")
-            .replacingOccurrences(of: ")", with: "")
-        let Fat : String = "\(food.responses.hints.first?.food.nutrients.FAT)".replacingOccurrences(of: "Optional(", with: "")
-            .replacingOccurrences(of: ")", with: "")
-        let Fiber : String = "\(food.responses.hints.first?.food.nutrients.FIBTG)"
-            .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
-        let Carbs : String = "\(food.responses.hints.first?.food.nutrients.CHOCDF)"
-            .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
-   
+        let Calories : String = "\(food.responses.hints[count].food.nutrients.ENERC_KCAL)".replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
+        let Protein : String = "\(food.responses.hints[count].food.nutrients.PROCNT)".replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
+        let Fat : String = "\(food.responses.hints[count].food.nutrients.FAT)".replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
+        let Fiber : String = "\(food.responses.hints[count].food.nutrients.FIBTG)"
+           .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
+        let Carbs : String = "\(food.responses.hints[count].food.nutrients.CHOCDF)"
+           .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
+       
         
         List(){
-            Text(verbatim: "\(foodLabel) - food label")
+            Text(verbatim: "\(foodLabel)")
             Text(verbatim: "Calories: \(Calories)")
             Text(verbatim: "Protein: \(Protein)g")
             Text(verbatim: "Fat: \(Fat)g")
             Text(verbatim: "Fiber: \(Fiber)g")
-            Text(verbatim: "Carbohydrates: \(Carbs)g \(count)")
+            Text(verbatim: "Carbohydrates: \(Carbs)g")
+            
+            
             KFImage(URL(string: imageUrl))
                 .resizable().aspectRatio(contentMode: .fit)
-            Text(verbatim: "\(food.responses.hints)")
             
-        } .navigationBarTitle(food.responses.hints.first?.food.label ?? "nil")
+            
+           Text("\(imageUrl)")
+            
+        } .navigationBarTitle(food.responses.hints[count].food.label ?? "nil") .navigationViewStyle(StackNavigationViewStyle())
         
     }
     
@@ -50,6 +51,6 @@ struct DetailedViewDetail: View {
 
 struct DetailedViewDetail_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedViewDetail(food: Food(name: Binding.constant("Pineapple")), name: Binding.constant("pineapple"), count: Binding.constant(-123))
+        DetailedViewDetail(food: Food(name: Binding.constant("Pineapple")), name: Binding.constant("pineapple"), count: Binding.constant(-1238))
     }
 }

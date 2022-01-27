@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                     
                     NavigationLink(destination: DetailedView(name: Binding.constant("\(name)"), food: Food(name: Binding.constant("\(name)")))) {
-                        Text("Search")
+                        Text("Search") .foregroundColor(Color.white)
                     }
                 }
                 

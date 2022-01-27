@@ -17,7 +17,7 @@ class Food : ObservableObject{
          
         print(name)
         
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)&nutrition-type=cooking") else {return}
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=b272de9f&app_key=%2044bc2890f9f76046f5088aeae406682d&ingr=\(name)") else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, erros) in
             guard let data = data else{
@@ -34,7 +34,7 @@ class Food : ObservableObject{
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async{
                     self.responses = response
-                    print(response.parsed)
+            
             }
                 
             }else {

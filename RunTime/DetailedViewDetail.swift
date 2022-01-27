@@ -11,7 +11,7 @@ import struct Kingfisher.KFImage
 struct DetailedViewDetail: View {
     @ObservedObject var food : Food
     @Binding var name : String
-//    @Binding var count : Int
+    @Binding var count : Int
     
     var body: some View {
         let foodLabel : String = "\(food.responses.hints.first?.food.label)"
@@ -37,7 +37,7 @@ struct DetailedViewDetail: View {
             Text(verbatim: "Protein: \(Protein)g")
             Text(verbatim: "Fat: \(Fat)g")
             Text(verbatim: "Fiber: \(Fiber)g")
-            Text(verbatim: "Carbohydrates: \(Carbs)g ")
+            Text(verbatim: "Carbohydrates: \(Carbs)g \(count)")
             KFImage(URL(string: imageUrl))
                 .resizable().aspectRatio(contentMode: .fit)
             Text(verbatim: "\(food.responses.hints)")
@@ -50,6 +50,6 @@ struct DetailedViewDetail: View {
 
 struct DetailedViewDetail_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedViewDetail(food: Food(name: Binding.constant("Pineapple")), name: Binding.constant("pineapple"))
+        DetailedViewDetail(food: Food(name: Binding.constant("Pineapple")), name: Binding.constant("pineapple"), count: Binding.constant(-123))
     }
 }

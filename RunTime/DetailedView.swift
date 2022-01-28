@@ -1,8 +1,7 @@
 
 // SwiftUI File: Detailed View
-// Written by: Andy Sun
-//Date: 1/11/22 - 1/xx/22
-//Description: The view when the dropdown is pressed. Contains the image, name of the food, and nutrients.
+// Written by: Elson Lin
+
 
 
 

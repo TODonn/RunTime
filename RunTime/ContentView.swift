@@ -22,34 +22,17 @@ struct ContentView: View {
                 Color.blue
                 VStack{
                     Text("NutriFacts")
-
                                             .foregroundColor(.white)
                                             .font(.system(size: 44))
                     Text("Enter Food Below").bold().foregroundColor(.black).font(.system(size: 24))
-                
-                        .foregroundColor(.white)
-                        .font(.system(size: 44))
-                    
-                        
-                    Text("Enter a Food Below").bold().foregroundColor(.black).font(.system(size: 18))
-
                     VStack{
                         TextField("Search ...", text: $name).foregroundColor(Color.black).background(Color(.systemGray4))
-                            
                 
                     }
                     
-
                     NavigationLink(destination: DetailedView(name: Binding.constant("\(name)"), food: Food(name: Binding.constant("\(name)")))) {
                         Text("Search") .foregroundColor(Color.white)
-
-                    NavigationLink(destination: DetailedView(name: $name, food: Food(name: Binding.constant("\(name)")), count: 0)) {
-                        Text("Search")
-                            .foregroundColor(.white)
-                            .font(.system(size: 22))
-
                     }
-                
                 }
                 
             }.ignoresSafeArea()

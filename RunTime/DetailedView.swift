@@ -18,8 +18,11 @@ struct DetailedView: View {
    @State var count : Int = 0
     
     var body: some View {
-        
-       
+
+        if (food.responses.hints.first?.food.label == nil){
+            KFImage(URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZ8QFc0iANE-OQiuVbsiwfbkL6JbE6Wqn6g&usqp=CAU:")).resizable().aspectRatio(contentMode: .fit)
+            Text("Check your Spelling!")
+        }
         List(food.responses.hints.indices){ counts in
             
             NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints.first?.food.label ?? "nil")), name: Binding.constant((food.responses.hints[counts].food.label ?? "nil")), count: Binding.constant(counts)),
@@ -29,7 +32,7 @@ struct DetailedView: View {
                                 
             })
             
-        } .navigationBarTitle("JSON DATA") .navigationViewStyle(StackNavigationViewStyle())
+        } .navigationBarTitle("\(name)") .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

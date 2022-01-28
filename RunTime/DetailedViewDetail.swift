@@ -27,8 +27,10 @@ struct DetailedViewDetail: View {
         let Carbs : String = "\(food.responses.hints[count].food.nutrients.CHOCDF)"
            .replacingOccurrences(of: "Optional(", with: "").replacingOccurrences(of: ")", with: "")
        
+        Image("edamam").resizable() .aspectRatio(contentMode: .fit)
         
         List(){
+           
             Text(verbatim: "\(foodLabel)")
             Text(verbatim: "Calories: \(Calories)")
             Text(verbatim: "Protein: \(Protein)g")
@@ -36,9 +38,13 @@ struct DetailedViewDetail: View {
             Text(verbatim: "Fiber: \(Fiber)g")
             Text(verbatim: "Carbohydrates: \(Carbs)g")
             
-            
-            KFImage(URL(string: imageUrl))
+            if (imageUrl == "nil"){
+            KFImage(URL(string: "https://zoomnearby.com/resources/media/images/common/Image-not-found.jpg"))
                 .resizable().aspectRatio(contentMode: .fit)
+            } else {
+                KFImage(URL(string: imageUrl))
+                    .resizable().aspectRatio(contentMode: .fit)
+            }
             
         } .navigationBarTitle(food.responses.hints[count].food.label ?? "nil") .navigationViewStyle(StackNavigationViewStyle())
     }

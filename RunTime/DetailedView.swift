@@ -24,7 +24,7 @@ struct DetailedView: View {
             
             NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints.first?.food.label ?? "nil")), name: Binding.constant((food.responses.hints[counts].food.label ?? "nil")), count: Binding.constant(counts)),
                             label: {
-                                Text(verbatim: "\((counts)+1). \(food.responses.hints[counts].food.label) " .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
+            Text(verbatim: "\((counts)+1). \(food.responses.hints[counts].food.label) " .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
                                 
                                 
             })

@@ -39,7 +39,7 @@ struct DetailedViewDetail: View {
             Text(verbatim: "Carbohydrates: \(Carbs)g")
             
             if (imageUrl == "nil"){
-            KFImage(URL(string: "https://zoomnearby.com/resources/media/images/common/Image-not-found.jpg"))
+            KFImage(URL(string: "https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png"))
                 .resizable().aspectRatio(contentMode: .fit)
             } else {
                 KFImage(URL(string: imageUrl))

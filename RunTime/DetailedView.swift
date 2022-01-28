@@ -15,28 +15,27 @@ struct DetailedView: View {
     
     @Binding var name : String
     @ObservedObject var food : Food
-    @State var count : Int
+   @State var count : Int = 0
     
     var body: some View {
         
-        
-        
-        List(food.responses.hints.indices){ count in
+       
+        List(food.responses.hints.indices){ counts in
             
-            
-            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints[count].food.label ?? "nil")), name: Binding.constant((food.responses.hints.first?.food.label ?? "nil")), count: Binding.constant(0)),
+            NavigationLink( destination:    DetailedViewDetail(food: Food(name: Binding.constant(food.responses.hints.first?.food.label ?? "nil")), name: Binding.constant((food.responses.hints[counts].food.label ?? "nil")), count: Binding.constant(counts)),
                             label: {
-                Text(verbatim: "\(food.responses.hints[count].food.label) \(count)".replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
-                
-                
+            Text(verbatim: "\((counts)+1). \(food.responses.hints[counts].food.label) " .replacingOccurrences(of: "Optional(\"", with: "").replacingOccurrences(of: "\")", with: ""))
+                                
+                                
             })
             
-        } .navigationBarTitle("JSON DATA")
+        } .navigationBarTitle("JSON DATA") .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
+
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailedView(name: .constant("Pineapple"), food: Food(name: Binding.constant("Pineapple")), count: 0)
+        DetailedView(name: .constant("Pineapple"), food: Food(name: Binding.constant("Pineapple")))
     }
 }

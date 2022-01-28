@@ -54,7 +54,7 @@ struct Response: Codable{
 }
 
 struct parsedItems: Codable{
-    var food: foodItem //the actual food item, the name, image, and nutrients
+    var food: [foodItem] = [foodItem]()
 }
 
 
